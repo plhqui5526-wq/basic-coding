@@ -48,3 +48,31 @@ void InsertSinglyLinkedList(ListNode **head, dataType data, int position) {
         q->next = newNode;
     }
 }
+
+void DeleteSinglyNode(ListNode **head, int position) {
+    ListNode *p, *q;
+    p = *head;
+    int k = 1;
+
+    if(*head==NULL) {
+        printf("The list is empty");
+        return;
+    }
+
+    if(position==1) {
+        (*head) = (*head)->next;
+        free(p);
+        return;
+    } else {
+        while((p!=NULL) && (k<position)) {
+            k++;
+            q=p;
+            p=p->next;
+        }
+
+        if(p!=NULL) {
+            q->next = p->next;
+            free(p);
+        } else printf("Position does not exist");
+    }
+}
