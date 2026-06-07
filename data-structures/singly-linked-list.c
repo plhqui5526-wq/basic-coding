@@ -76,3 +76,17 @@ void DeleteSinglyNode(ListNode **head, int position) {
         } else printf("Position does not exist");
     }
 }
+
+void DeleteSinglyLinkedList(ListNode **head) {
+    ListNode *auxiliary, *iterator;
+
+    iterator = *head;
+
+    while(iterator) {
+        auxiliary = iterator->next;
+        free(iterator);
+        iterator = auxiliary;
+    }
+
+    *head = NULL;
+}
