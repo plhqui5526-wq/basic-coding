@@ -51,4 +51,34 @@ void insertDLLNode(DLLNode **head, dataType data, int position) {
     return;
 }
 
-void deleteDLLNode(DLLNode **head, int position) {}
+void deleteDLLNode(DLLNode **head, int position) {
+    if(head == NULL || *head == NULL || position < 1) {
+        printf("Error: Invalid");
+        return;
+    }
+
+    DLLNode *p = *head;
+    int k = 1;
+
+    while(p != NULL && k < position) {
+        k++;
+        p = p->next;
+    }
+
+    if(p == NULL) {
+        printf("Error: Invalid position");
+        return;
+    }
+
+    if(p->prev != NULL) {
+        p->prev->next = p->next;
+    } else {
+        *head = p->next;
+    }
+
+    if(p->next != NULL) {
+        p->next->prev = p->prev;
+    }
+
+    free(p);
+}
