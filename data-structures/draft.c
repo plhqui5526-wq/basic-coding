@@ -9,35 +9,42 @@ typedef struct DLLNode {
 } DLLNode;
 
 void insertDLLNode(DLLNode **head, dataType data, int position) {
-    int k=1;
-    DLLNode *p;
-    DLLNode *newNode = (DLLNode *)malloc(sizeof(DLLNode));
-    
-    if(!newNode) {
-        printf("Memory error");
+    if(head == NULL || position < 1) {
+        printf("Error: Invalid");
+        return;
+    }
+
+    DLLNode *newNode = malloc(sizeof(DLLNode));
+    if(newNode == NULL) {
+        printf("Error: Memory allocation failed");
         return;
     }
 
     newNode->data = data;
+    newNode->prev = NULL;
+    newNode->next = NULL;
 
-    if(position==1) {
-        newNode->prev = NULL;
+    if(position == 1) {
         newNode->next = *head;
 
-        if(*head) (*head)->prev = newNode;
+        if(*head != NULL) {
+            (*head)->prev = newNode;
+        }
 
         *head = newNode;
         return;
     }
 
-    p = *head;
-    while(p!=NULL && k<position-1) {
+    DLLNode *p = *head;
+    int k = 1;
+
+    while(p != NULL && k < position - 1) {
         k++;
-        p=p->next;
+        p = p->next;
     }
 
-    if(p==NULL) {
-        printf("Invalid position");
+    if(p == NULL) {
+        printf("Error: Invalid position");
         free(newNode);
         return;
     }
@@ -45,10 +52,11 @@ void insertDLLNode(DLLNode **head, dataType data, int position) {
     newNode->prev = p;
     newNode->next = p->next;
 
-    if(p->next) p->next->prev = newNode;
+    if(p->next != NULL) {
+        p->next->prev = newNode;
+    }
 
     p->next = newNode;
-    return;
 }
 
 void deleteDLLNode(DLLNode **head, int position) {
