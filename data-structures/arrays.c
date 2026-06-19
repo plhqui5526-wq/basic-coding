@@ -17,6 +17,8 @@ int sumArray(int array[], int length) {
 }
 
 double avgArray(int array[], int length) {
+    if(length == 0) return 0.0;
+    
     int S = sumArray(array, length);
 
     return (double) (S / length);
