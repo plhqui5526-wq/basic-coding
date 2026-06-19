@@ -1,12 +1,12 @@
 #include<stdio.h>
 
-void printArray(int array[], int length) {
+void printArray(const int array[], int length) {
     for(int i = 0; i < length; i++) {
         printf("Element[%d] = %d\n", i, array[i]);
     }
 }
 
-int sumArray(int array[], int length) {
+int sumArray(const int array[], int length) {
     int sum=0;
 
     for(int i = 0; i < length; i++) {
@@ -16,13 +16,15 @@ int sumArray(int array[], int length) {
     return sum;
 }
 
-double avgArray(int array[], int length) {
+double avgArray(const int array[], int length) {
     if(length == 0) return 0.0;
 
     int S = sumArray(array, length);
 
     return (double) S / length;
 }
+
+
 
 int main() {
     int array[] = {4, 8, 15, 16, 23, 42};
