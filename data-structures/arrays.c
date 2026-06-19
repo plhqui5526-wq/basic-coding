@@ -24,15 +24,35 @@ double avgArray(const int array[], int length) {
     return (double) S / length;
 }
 
+void insertArray(int array[], int *length, int capacity, int index, int value) {
+    if(*length >= capacity) {
+        printf("Error: Exceeding the initial memory allocation");
+        return;
+    }
 
+    if(index < 0 || index > *length) {
+        printf("Error: Invalid position");
+        return;
+    }
+
+    for(int i = *length; i > index; i--) {
+        array[i] = array[i-1];
+    }
+
+    array[index] = value;
+    (*length)++;
+}
 
 int main() {
-    int array[] = {4, 8, 15, 16, 23, 42};
+    int array[10] = {4, 8, 15, 16, 23, 42};
     int length = sizeof(array)/sizeof(array[0]);
     array[2] = 17;
 
     printArray(array, length);
 
+    insertArray(array, &length, 10, 2, 199);
+
+    printArray(array, length);
 
     return 0;
 }
