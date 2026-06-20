@@ -44,7 +44,7 @@ void insertArray(int array[], int *length, int capacity, int index, int value) {
 }
 
 void deleteArray(int array[], int *length, int index) {
-    if(index < 0 || index > *length) {
+    if(index < 0 || index >= *length) {
         printf("Error: Invalid position\n");
         return;
     }
@@ -62,15 +62,19 @@ int main() {
     int capacity = sizeof(array)/sizeof(array[0]);
 
     printArray(array, length);
-
+    printf("========================================\n");
+    
     insertArray(array, &length, 10, 2, 12);
     printArray(array, length);
+    printf("========================================\n");
 
     insertArray(array, &length, 10, length, 25);
     printArray(array, length);
+    printf("========================================\n");
 
     deleteArray(array, &length, 1);
     printArray(array, length);
+    printf("========================================\n");
 
     return 0;
 }
