@@ -43,6 +43,19 @@ void insertArray(int array[], int *length, int capacity, int index, int value) {
     (*length)++;
 }
 
+void deleteArray(int array[], int *length, int index) {
+    if(index < 0 || index > *length) {
+        printf("Error: Invalid position");
+        return;
+    }
+
+    for(int i = index; i < *length - 1; i++) {
+        array[i] = array[i+1];
+    }
+
+    (*length)--;
+}
+
 int main() {
     int array[10] = {4, 8, 15, 16, 23, 42};
     int length = sizeof(array)/sizeof(array[0]);
