@@ -26,12 +26,12 @@ double avgArray(const int array[], int length) {
 
 void insertArray(int array[], int *length, int capacity, int index, int value) {
     if(*length >= capacity) {
-        printf("Error: Exceeding the initial memory allocation");
+        printf("Error: Exceeding the initial memory allocation\n");
         return;
     }
 
     if(index < 0 || index > *length) {
-        printf("Error: Invalid position");
+        printf("Error: Invalid position\n");
         return;
     }
 
@@ -45,7 +45,7 @@ void insertArray(int array[], int *length, int capacity, int index, int value) {
 
 void deleteArray(int array[], int *length, int index) {
     if(index < 0 || index > *length) {
-        printf("Error: Invalid position");
+        printf("Error: Invalid position\n");
         return;
     }
 
@@ -57,14 +57,19 @@ void deleteArray(int array[], int *length, int index) {
 }
 
 int main() {
-    int array[10] = {4, 8, 15, 16, 23, 42};
-    int length = sizeof(array)/sizeof(array[0]);
-    array[2] = 17;
+    int array[10] = {5, 10, 15, 20};
+    int length = 4;
+    int capacity = sizeof(array)/sizeof(array[0]);
 
     printArray(array, length);
 
-    insertArray(array, &length, 10, 2, 199);
+    insertArray(array, &length, 10, 2, 12);
+    printArray(array, length);
 
+    insertArray(array, &length, 10, length, 25);
+    printArray(array, length);
+
+    deleteArray(array, &length, 1);
     printArray(array, length);
 
     return 0;
