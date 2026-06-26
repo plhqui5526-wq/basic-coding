@@ -81,25 +81,24 @@ int binarySearch(const int array[], int length, int target) {
     return -1;
 }
 
+void announcement(int index) {
+    if(index != -1) printf("Found element at %d\n", index);
+    else printf("Not found\n");
+}
+
 int main() {
-    int array[10] = {5, 10, 15, 20};
-    int length = 4;
+    int array[10] = {8, 3, 12, 7, 19, 4};
+    int length1 = 6;
     int capacity = sizeof(array)/sizeof(array[0]);
 
-    printArray(array, length);
-    printf("========================================\n");
-    
-    insertArray(array, &length, 10, 2, 12);
-    printArray(array, length);
-    printf("========================================\n");
+    printf("==========Exercise 1==========\n");
+    int index10 = linearSearch(array, length1, 7);
+    int index11 = linearSearch(array, length1, 19);
+    int index12 = linearSearch(array, length1, 20);
 
-    insertArray(array, &length, 10, length, 25);
-    printArray(array, length);
-    printf("========================================\n");
-
-    deleteArray(array, &length, 1);
-    printArray(array, length);
-    printf("========================================\n");
+    announcement(index10);
+    announcement(index11);
+    announcement(index12);
 
     return 0;
 }
