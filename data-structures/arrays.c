@@ -100,5 +100,9 @@ int main() {
     announcement(index11);
     announcement(index12);
 
+    printf("The best-case time complexity is O(1)\n");
+    printf("The worst-case time complexity is O(n)\n");
+
+    
     return 0;
 }
