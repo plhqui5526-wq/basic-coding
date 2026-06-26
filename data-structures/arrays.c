@@ -56,6 +56,31 @@ void deleteArray(int array[], int *length, int index) {
     (*length)--;
 }
 
+int linearSearch(const int array[], int length, int target) {
+    for(int i = 0; i < length; i++) {
+        if(array[i] == target) return i;
+    }
+
+    return -1;
+}
+
+int binarySearch(const int array[], int length, int target) {
+    int left = 0;
+    int right = length - 1;
+    int middle;
+
+    while(left <= right) {
+        middle = left + (right - left) / 2;
+
+        if(array[middle] == target) return middle;
+
+        if(array[middle] < target) left = middle + 1;
+        else right = middle - 1;
+    }
+
+    return -1;
+}
+
 int main() {
     int array[10] = {5, 10, 15, 20};
     int length = 4;
