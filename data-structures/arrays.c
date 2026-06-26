@@ -86,6 +86,18 @@ void announcement(int index) {
     else printf("Not found\n");
 }
 
+int countOccurrences(const int array[], int length, int target) {
+    int count = 0;
+
+    for(int i = 0; i < length; i++) {
+        if(array[i] == target) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
 int main() {
     int array[10] = {8, 3, 12, 7, 19, 4};
     int length1 = 6;
@@ -103,6 +115,12 @@ int main() {
     printf("The best-case time complexity is O(1)\n");
     printf("The worst-case time complexity is O(n)\n");
 
+    printf("==========Exercise 2==========\n");
+    int array2[10] = {2, 5, 2, 8, 2, 10};
+    int length2 = 6;
     
+    int occurrences = countOccurrences(array2, length2, 2);
+    printf("Total number of times that %d appears are: %d\n", occurrences);
+
     return 0;
 }
