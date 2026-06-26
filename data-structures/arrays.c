@@ -120,7 +120,7 @@ int main() {
     int length2 = 6;
     
     int occurrences = countOccurrences(array2, length2, 2);
-    printf("Total number of times that %d appears are: %d\n", occurrences);
+    printf("Total number of times that 2 appears are: %d\n", occurrences);
 
     return 0;
 }
