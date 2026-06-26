@@ -98,6 +98,26 @@ int countOccurrences(const int array[], int length, int target) {
     return count;
 }
 
+int findLastLeft(const int array[], int length, int target) {
+    int index = -1;
+    
+    for(int i = 0; i < length; i++) {
+        if(array[i] == target) {
+            index = i;
+        }
+    }
+
+    return index;
+}
+
+int findLastRight(const int array[], int length, int target) {
+    for(int i = length - 1; i >= 0 ; i--) {
+        if(array[i] == target) return i;
+    }
+
+    return -1;
+}
+
 int main() {
     int array[10] = {8, 3, 12, 7, 19, 4};
     int length1 = 6;
@@ -122,5 +142,16 @@ int main() {
     int occurrences = countOccurrences(array2, length2, 2);
     printf("Total number of times that 2 appears are: %d\n", occurrences);
 
+    printf("==========Exercise 2==========\n");
+    int array3[10] = {4, 7, 2, 7, 9, 7};
+    int length3 = 6;
+
+    int lastIndexLeft = findLastLeft(array3, length3, 7);
+    int lastIndexRight = findLastRight(array3, length3, 7);
+
+    printf("From left to right, the last index is at %d\n", lastIndexLeft);
+    printf("From right to left, the last index is at %d\n", lastIndexRight);
+
+    
     return 0;
 }
