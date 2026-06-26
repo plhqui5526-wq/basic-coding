@@ -141,8 +141,10 @@ int main() {
     
     int occurrences = countOccurrences(array2, length2, 2);
     printf("Total number of times that 2 appears are: %d\n", occurrences);
+    printf("Time complexity: O(n)");
+    printf("Space complexity: O(1)? It creates another variable, though");
 
-    printf("==========Exercise 2==========\n");
+    printf("==========Exercise 3==========\n");
     int array3[10] = {4, 7, 2, 7, 9, 7};
     int length3 = 6;
 
@@ -151,7 +153,17 @@ int main() {
 
     printf("From left to right, the last index is at %d\n", lastIndexLeft);
     printf("From right to left, the last index is at %d\n", lastIndexRight);
+    printf("Time complexity for both: O(n)\n");
 
-    
+    printf("==========Exercise 4==========\n");
+    int array4[] = {2, 5, 8, 12, 16, 23, 38, 56};
+    int length4 = 8;
+    int index41 = binarySearch(array4, length4, 23);
+    int index42 = binarySearch(array4, length4, 2);
+    int index43 = binarySearch(array4, length4, 56);
+    int index44 = binarySearch(array4, length4, 15);
+
+    printf("23, 2, 56, 15 is at index %d, %d, %d, %d\n", index41, index42, index43, index44);
+
     return 0;
 }
