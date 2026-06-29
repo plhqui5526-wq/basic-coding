@@ -118,52 +118,33 @@ int findLastRight(const int array[], int length, int target) {
     return -1;
 }
 
+void bubbleSort(int array[], int length) {
+    for(int i = 0; i < length - 1; i++) {
+        int swapped = 0;
+
+        for(int j = 0; j < length - 1 - pass; j++) {
+            if(array[j] > array[j+1]) {
+                int temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+
+                swapped = 1;
+            }
+        }
+
+        if(!swapped) break;
+    }
+}
+
 int main() {
-    int array[10] = {8, 3, 12, 7, 19, 4};
-    int length1 = 6;
-    int capacity = sizeof(array)/sizeof(array[0]);
+    int array[] = {9, 4, 7, 1, 3};
+    int length = sizeof(array) / sizeof(array[0]);
 
-    printf("==========Exercise 1==========\n");
-    int index10 = linearSearch(array, length1, 7);
-    int index11 = linearSearch(array, length1, 19);
-    int index12 = linearSearch(array, length1, 20);
+    printArray(array, length);
 
-    announcement(index10);
-    announcement(index11);
-    announcement(index12);
+    bubbleSort(array, length);
 
-    printf("The best-case time complexity is O(1)\n");
-    printf("The worst-case time complexity is O(n)\n");
-
-    printf("==========Exercise 2==========\n");
-    int array2[10] = {2, 5, 2, 8, 2, 10};
-    int length2 = 6;
-    
-    int occurrences = countOccurrences(array2, length2, 2);
-    printf("Total number of times that 2 appears are: %d\n", occurrences);
-    printf("Time complexity: O(n)");
-    printf("Space complexity: O(1)? It creates another variable, though");
-
-    printf("==========Exercise 3==========\n");
-    int array3[10] = {4, 7, 2, 7, 9, 7};
-    int length3 = 6;
-
-    int lastIndexLeft = findLastLeft(array3, length3, 7);
-    int lastIndexRight = findLastRight(array3, length3, 7);
-
-    printf("From left to right, the last index is at %d\n", lastIndexLeft);
-    printf("From right to left, the last index is at %d\n", lastIndexRight);
-    printf("Time complexity for both: O(n)\n");
-
-    printf("==========Exercise 4==========\n");
-    int array4[] = {2, 5, 8, 12, 16, 23, 38, 56};
-    int length4 = 8;
-    int index41 = binarySearch(array4, length4, 23);
-    int index42 = binarySearch(array4, length4, 2);
-    int index43 = binarySearch(array4, length4, 56);
-    int index44 = binarySearch(array4, length4, 15);
-
-    printf("23, 2, 56, 15 is at index %d, %d, %d, %d\n", index41, index42, index43, index44);
+    printArray(array, length);
 
     return 0;
 }
