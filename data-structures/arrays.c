@@ -119,25 +119,31 @@ int findLastRight(const int array[], int length, int target) {
 }
 
 void bubbleSort(int array[], int length) {
+    int swaps = 0; int comparisons = 0;
+
     for(int i = 0; i < length - 1; i++) {
         int swapped = 0;
 
-        for(int j = 0; j < length - 1 - pass; j++) {
+        for(int j = 0; j < length - 1 - i; j++) {
+            comparisons++;
             if(array[j] > array[j+1]) {
                 int temp = array[j];
                 array[j] = array[j+1];
                 array[j+1] = temp;
 
                 swapped = 1;
+                swaps++;
             }
         }
 
         if(!swapped) break;
     }
+
+    printf("comparisons = %d; swaps = %d\n", comparisons, swaps);
 }
 
 int main() {
-    int array[] = {9, 4, 7, 1, 3};
+    int array[] = {4, 3, 2, 1};
     int length = sizeof(array) / sizeof(array[0]);
 
     printArray(array, length);
