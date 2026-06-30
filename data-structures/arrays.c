@@ -2,8 +2,9 @@
 
 void printArray(const int array[], int length) {
     for(int i = 0; i < length; i++) {
-        printf("Element[%d] = %d\n", i, array[i]);
+        printf("%d ", array[i]);
     }
+    printf("\n");
 }
 
 int sumArray(const int array[], int length) {
@@ -142,14 +143,38 @@ void bubbleSort(int array[], int length) {
     printf("comparisons = %d; swaps = %d\n", comparisons, swaps);
 }
 
+void selectionSort(int array[], int length) {
+    int comparisons = 0; int swaps = 0;
+
+    for(int i = 0; i < length - 1; i++) { 
+        int minIndex = i;
+
+        for(int j = i + 1; j < length; j++) {
+            comparisons++;
+
+            if(array[j] < array[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        if(minIndex != i) {
+            int temp = array[minIndex];
+            array[minIndex] = array[i];
+            array[i] = temp; 
+
+            swaps++;
+        }
+    }
+
+    printf("comparisons = %d; swaps = %d\n", comparisons, swaps);
+}
+
 int main() {
     int array[] = {4, 3, 2, 1};
     int length = sizeof(array) / sizeof(array[0]);
 
     printArray(array, length);
-
-    bubbleSort(array, length);
-
+    selectionSort(array, length);
     printArray(array, length);
 
     return 0;
