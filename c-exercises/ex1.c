@@ -1,12 +1,12 @@
 #include<stdio.h>
 
 void printArray(const int array[], int length) {
-    printf("[ ");
+    printf("[");
     for(int i = 0; i < length; i++) {
-        printf("%d", );
+        printf("%d", array[i]);
         if(i != length - 1) printf(", ");
     }
-    printf(" ]\n");
+    printf("]\n");
 }
 
 int main() {
