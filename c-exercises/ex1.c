@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 void printArray(const int array[], int length) {
-    printf("[ ")
+    printf("[ ");
     for(int i = 0; i < length; i++) {
         printf("%d", );
         if(i != length - 1) printf(", ");
