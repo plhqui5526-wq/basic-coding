@@ -2,7 +2,6 @@
 
 int main() {
     int kilos;
-    printf("Enter the number of kilos: ");
     scanf("%d", &kilos);
 
     if(kilos % 2 == 0 && kilos > 2) {
