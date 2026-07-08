@@ -26,6 +26,9 @@ int main() {
     while(scanf("%d%*c", &array) == 1) {
         counter++;
     }
+    printArray(array, counter);
     insertionSort(array, counter);
+    printArray(array, counter);
 
+    return 0;
 }
