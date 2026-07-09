@@ -14,23 +14,23 @@ int main() {
         else if(string[i] == '3') counter3++;
     }
 
+    int first = 1;
     for(int i = 0; i < counter1; i++) {
+        if(!first) printf("+");
         printf("1");
-        if(i == counter1 - 1) {
-            if(counter2 == 0 && counter3 == 0) break;
-            else printf("+");
-        } else printf("+");
+        first = 0;
     }
+
     for(int i = 0; i < counter2; i++) {
+        if(!first) printf("+");
         printf("2");
-        if(i == counter2 - 1) {
-            if(counter3 == 0) break;
-            else printf("+");
-        } else printf("+");
+        first = 0;
     }
+
     for(int i = 0; i < counter3; i++) {
+        if(!first) printf("+");
         printf("3");
-        if(i != counter3 - 1) printf("+");
+        first = 0;
     }
     return 0;
 }
