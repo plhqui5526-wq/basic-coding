@@ -2,13 +2,13 @@
 #include<ctype.h>
 
 void lowerr(char string[]) {
-    for(int i = 0; i != '\0'; i++) {
+    for(int i = 0; string[i] != '\0'; i++) {
         string[i] = (char)tolower((unsigned char)string[i]);
     }
 }
 
 void upperr(char string[]) {
-    for(int i = 0; i != '\0'; i++) {
+    for(int i = 0; string[i] != '\0'; i++) {
         string[i] = (char)toupper((unsigned char)string[i]);
     }
 }
@@ -27,6 +27,6 @@ int main() {
     if(low >= up) lowerr(string);
     else upperr(string);
 
-    printf("%s %d %d", string, low, up);
+    printf("%s", string);
     return 0;
 }
