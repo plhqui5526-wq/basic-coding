@@ -27,5 +27,6 @@ int main() {
     if(low >= up) lowerr(string);
     else upperr(string);
 
+    printf("%s", string);
     return 0;
 }
