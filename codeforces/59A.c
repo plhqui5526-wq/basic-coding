@@ -19,7 +19,7 @@ int main() {
 
     int up = 0; int low = 0;
 
-    for(int i = 0; i != '\0'; i++) {
+    for(int i = 0; string[i] != '\0'; i++) {
         if(string[i] >= 'A' && string[i] <= 'Z') up++;
         else if(string[i] >= 'a' && string[i] <= 'z') low++;
     }
@@ -27,6 +27,6 @@ int main() {
     if(low >= up) lowerr(string);
     else upperr(string);
 
-    printf("%s", string);
+    printf("%s %d %d", string, low, up);
     return 0;
 }
