@@ -10,18 +10,33 @@ bool isPalindrome(int x) {
     }
     
     int array[n];
-    int i = 0;
+    int j = 0;
 
-    int q = x;
-    while(q > 0) {
-        array[i] = q % 10;
-        q = q / 10;
-        i++;
+    t = x;
+    while(t > 0) {
+        array[j] = t % 10;
+        t = t / 10;
+        printf("%d ", array[j]);
+        j++;
     }
-    bool flag = 1;
-    for(int i = n - 1; i >= 0; i++) {
-        if(array[i] != x % 10) flag = 0; 
+    bool flag = true;
+    for(int i = n - 1; i >= 0; i--) {
+        if(array[i] < 0) continue;
+        if(array[i] != x % 10) flag = false; 
+        x = x / 10;
     }
 
     return flag;
+}
+
+int main() {
+    int x;
+    scanf("%d", &x);
+
+    bool flag = isPalindrome(x);
+
+    if(flag) printf("YES");
+    else printf("NO");
+
+    return 0;
 }
